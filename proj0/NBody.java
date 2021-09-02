@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -49,7 +50,9 @@ public class NBody {
             double xP;
             try{
                 xP = in.readDouble();
-            }catch(InputMismatchException e){
+            }catch(InputMismatchException e) {
+                break;
+            }catch(NoSuchElementException e) {
                 break;
             }
             
