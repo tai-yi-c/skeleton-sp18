@@ -91,12 +91,13 @@ public class NBody {
     private static void drawPlanets() {
 
         for(int i = 0;i < N;i++) {
-            String imageToDraw = "images\\" + universe[i].imgFileName;
+            //String imageToDraw = "images\\" + universe[i].imgFileName;
             /* Stamps three copies of advice.png in a triangular pattern. */
-            StdDraw.picture(universe[i].xxPos, universe[i].yyPos, imageToDraw);
+            //StdDraw.picture(universe[i].xxPos, universe[i].yyPos, imageToDraw);
             /* Shows the drawing to the screen, and waits 2000 milliseconds. */
             //StdDraw.show();
             //StdDraw.pause(200);
+            universe[i].draw();
         }
         
     }

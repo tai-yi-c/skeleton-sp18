@@ -92,4 +92,10 @@ public class Planet {
         this.xxPos += dt * this.xxVel;
         this.yyPos += dt * this.yyVel;
     }
+    //**draw one planet of universe */
+    public void draw() {
+        String imageToDraw = "images\\" + imgFileName;
+        /* Stamps three copies of advice.png in a triangular pattern. */
+        StdDraw.picture(this.xxPos, this.yyPos, imageToDraw);
+    }
 }
