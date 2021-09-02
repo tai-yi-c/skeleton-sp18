@@ -9,7 +9,7 @@ public class Planet {
     public double mass;//Its mass
     //The name of the file that corresponds to the image that depicts the planet
     public String imgFileName;
-    public static double G=6.67e-11;
+    private static double G=6.67e-11;
 
     //**constructer of Planet with specific paramester */
     public Planet(double xP, double yP, double xV,

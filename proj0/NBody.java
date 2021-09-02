@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -36,23 +37,22 @@ public class NBody {
             in.readLine();
             i++;
         }
-        
-        Vector                      <Planet> planets = new Vector<Planet>();
+        Vector<Planet> planets = new Vector<Planet>();
         //read the data of every planet
         while(in.hasNextLine()) {
            
             //double xP = in.readDouble();
-            String xpS;
-            if(in.hasNextChar()) {
-                xpS = in.readString();
-            }else {
+            // String xpS = in.readString();
+            // if(!isNumber(xpS)) {
+            //     break;
+            // }
+            double xP;
+            try{
+                xP = in.readDouble();
+            }catch(InputMismatchException e){
                 break;
             }
             
-            if(!isNumber(xpS)) {
-                break;
-            }
-            double xP = Double.parseDouble(xpS);
             double yP = in.readDouble();
             double xV = in.readDouble();
             double yV = in.readDouble();
