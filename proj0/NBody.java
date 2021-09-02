@@ -5,9 +5,9 @@ import java.util.Vector;
 
 
 public class NBody {
-    public static int N;//represent existing N planets of the universe
-    public static double R;//represent the radius of the universe
-    public static Planet[] universe;//represent all the planets existing in the universe
+    private static int N;//represent existing N planets of the universe
+    private static double R;//represent the radius of the universe
+    private static Planet[] universe;//represent all the planets existing in the universe
     public static double readRadius(String path) {
         double result=0.0;
         int i=0;
@@ -37,12 +37,18 @@ public class NBody {
             i++;
         }
         
-        Vector<Planet> planets = new Vector<Planet>();
+        Vector                      <Planet> planets = new Vector<Planet>();
         //read the data of every planet
         while(in.hasNextLine()) {
            
             //double xP = in.readDouble();
-            String xpS = in.readString();
+            String xpS;
+            if(in.hasNextChar()) {
+                xpS = in.readString();
+            }else {
+                break;
+            }
+            
             if(!isNumber(xpS)) {
                 break;
             }
@@ -123,7 +129,7 @@ public class NBody {
         //double T = Double.parseDouble(scanner.nextLine());
         double T = scanner.nextDouble();
         //System.out.println("dt:");
-        //double dt = 1e5;
+        //double dt = 1e5;giy
         //double dt = Double.parseDouble(scanner.nextLine());
         double dt = scanner.nextDouble();
         //System.out.println("filename:");
@@ -137,6 +143,14 @@ public class NBody {
         
         //show the animation
         animation(T, dt);
+
+        StdOut.printf("%d\n", universe.length);
+        StdOut.printf("%.2e\n", R);
+        for (int i = 0; i < universe.length; i++) {
+            StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                        universe[i].xxPos, universe[i].yyPos, universe[i].xxVel,
+                        universe[i].yyVel, universe[i].mass, universe[i].imgFileName);   
+        }
     }
 }
 
